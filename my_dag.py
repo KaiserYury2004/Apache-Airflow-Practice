@@ -7,26 +7,20 @@ from datetime import datetime
 from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.operators.bash import BashOperator
 from airflow.sensors.filesystem import FileSensor
-import configparser
 import logging
 from airflow.utils.task_group import TaskGroup
 from airflow.datasets import Dataset
 from airflow.providers.mongo.hooks.mongo import MongoHook
-config = configparser.ConfigParser()
-config.read("config.ini")
-#path_to_data=/path/to/your/data/file.csv
-path_to_data='/home/kaiser/airflow/dags/tiktok_google_play_reviews.csv'
+path_to_data=/path/to/your/data/file.csv
 def loading_data():
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__name__)
     logger.info("Подключение:")
     try:
-        hook = MongoHook(mongo_conn_id='Mongo_compass')
+        hook = MongoHook(mongo_conn_id='your_mongo_connection_name')
         client=hook.get_conn()
-        # db = client.your_database_name
-        # collection = db.your_collection_name
-        db = client.admin
-        collection = db.TikTokReviews
+        db = client.your_database_name
+        collection = db.your_collection_name
         df=pd.read_csv(path_to_data)
         data_dictionary = df.to_dict('records')
         collection.insert_one(data_dictionary)
@@ -59,7 +53,7 @@ with DAG("Mongo_DAG_1", start_date=datetime(2024, 1, 1), schedule_interval=None,
     sensor_searching = FileSensor(
         task_id='sensor',
         filepath=path_to_data,
-        fs_conn_id='fs_snowflake',
+        fs_conn_id='your_file_connection_name',
         poke_interval=10,
         timeout=300
     )
