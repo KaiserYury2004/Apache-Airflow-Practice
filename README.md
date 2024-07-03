@@ -30,9 +30,15 @@
 
 ## DAG's
 ![image](https://github.com/KaiserYury2004/Apache-Airflow-Practice/assets/129221692/cfd0a7a1-a07e-4a7c-90e3-a57730a8e53d)
+
 **Mongo_DAG_1** выполняет поиск и обработку данных,потом через Dataset запускает **Mongo_DAG_2**
-![image](https://github.com/KaiserYury2004/Apache-Airflow-Practice/assets/129221692/d3aae325-b13d-4a18-b57b-70d6386a7935)
-![image](https://github.com/KaiserYury2004/Apache-Airflow-Practice/assets/129221692/619d246b-42b0-4047-9f08-d67e9f5a13c6)
+
+Если все сделано верно и по инструкции,то должно получиться 
+
+![image](https://github.com/KaiserYury2004/Apache-Airflow-Practice/assets/129221692/49bf2922-af50-486b-8ac1-5b98b978cc44)
+
+![image](https://github.com/KaiserYury2004/Apache-Airflow-Practice/assets/129221692/2a841174-eb73-480e-8882-1d0627506936)
+
 
 
 ## Запросы в MongoDB 
