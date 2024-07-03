@@ -28,7 +28,14 @@
 Также в переменной path_to_data следует указать путь до вашего csv-файла(путь указывается в соответствии с правилами Linux,т.к просто указать путь вряд-ли выйдет)
 Однако не стоит забывать про имена баз данных и коллекций.Там придется указывать свои данные.
 
-##Запросы в MongoDB 
+## DAG's
+![image](https://github.com/KaiserYury2004/Apache-Airflow-Practice/assets/129221692/cfd0a7a1-a07e-4a7c-90e3-a57730a8e53d)
+**Mongo_DAG_1** выполняет поиск и обработку данных,потом через Dataset запускает **Mongo_DAG_2**
+![image](https://github.com/KaiserYury2004/Apache-Airflow-Practice/assets/129221692/d3aae325-b13d-4a18-b57b-70d6386a7935)
+![image](https://github.com/KaiserYury2004/Apache-Airflow-Practice/assets/129221692/619d246b-42b0-4047-9f08-d67e9f5a13c6)
+
+
+## Запросы в MongoDB 
 После загрузки обработанных данных,предстоит написать пайплайны с запросами:
 - Топ-5 часто встречаемых комментариев
 
